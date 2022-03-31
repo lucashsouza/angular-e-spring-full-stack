@@ -42,7 +42,8 @@ public class ClienteController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void atualizar(@PathVariable("id") Integer id, @RequestBody @Valid Cliente clienteAtualizado) {
+    public void atualizar( @PathVariable("id") Integer id,
+                           @RequestBody @Valid Cliente clienteAtualizado) {
         repository
                 .findById(id)
                 .map(cliente -> {
@@ -53,7 +54,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar(@PathVariable Integer id) {
         repository
                 .findById(id)
